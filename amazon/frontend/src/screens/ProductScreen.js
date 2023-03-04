@@ -43,7 +43,7 @@ function ProductScreen() {
      const fetchData = async ()=>{
       dispatch({type:'FETCH_REQUEST'});
       try {
-        const result = await axios.get(`/api/products/slug/${slug}`)  //http://localhost:5000/api/products
+        const result = await axios.get(`/api/products/slug/${slug}`)
         dispatch({type:'FETCH_SUCCESS', payload:result.data})
      
       } catch (err) {
