@@ -11,6 +11,7 @@ import uploadRouter from './routes/uploadRoutes.js';
 import  path  from 'path';
 
 
+
 dotenv.config();
 
 mongoose.connect(process.env.MONGODB_URI).then(()=>{
@@ -48,11 +49,11 @@ app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.dirname( "../frontend/public")));
 
 // Catch-all route that serves the index.html file
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public/index.html"));
+  res.sendFile(path.dirname( "../frontend/public/index.html"));
 });
 
 
