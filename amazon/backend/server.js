@@ -47,6 +47,13 @@ app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
 
+app.use(express.static(path.join(__dirname, "public")));
+
+// Catch-all route that serves the index.html file
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public/index.html"));
+});
+
 
 app.use((err, req, res, next)=>{
     res.status(500).send({message: err.message})
