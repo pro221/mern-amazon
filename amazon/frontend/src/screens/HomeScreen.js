@@ -37,7 +37,7 @@ export default function HomeScreen() {
    const fetchData = async ()=>{
     dispatch({type:'FETCH_REQUEST'});
     try {
-      const result = await axios.get('https://mern-amazon-app.onrender.com/api/products')
+      const result = await axios.get('/api/products')
       dispatch({type:'FETCH_SUCCESS', payload:result.data})
    
     } catch (err) {
